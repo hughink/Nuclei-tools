@@ -1,6 +1,5 @@
 import sys
 import os
-import logging
 import uuid
 import yaml
 import shlex
@@ -12,8 +11,13 @@ from PyQt5.QtGui import QSyntaxHighlighter, QTextCharFormat, QColor, QFont, QPai
 from PyQt5.QtCore import Qt, QRegExp, QThreadPool
 from PyQt5.QtWidgets import (QApplication, QMainWindow, QTableWidget, QTableWidgetItem, QVBoxLayout, QHBoxLayout,
                              QWidget, QPushButton, QPlainTextEdit, QMessageBox, QLineEdit, QSplitter, QMenu,
-                             QCheckBox, QLabel, QInputDialog, QFileDialog)
+                             QCheckBox, QLabel, QInputDialog)
 
+# author： hugh
+# 微信公众号：和光同尘hugh
+########################################################################################################################
+# 创建一个工作线程类 待开发
+# ——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 ########################################################################################################################
 # 打开 poc文件
@@ -72,7 +76,7 @@ class NucleiPOCManager(QMainWindow):
         self.initUI()
 
     def initUI(self):
-        self.setWindowTitle("nuclei扫描")
+        self.setWindowTitle("nuclei小工具，由hugh乱写的")
         self.setGeometry(100, 100, 1280, 840)
         palette = QPalette()
         self.setPalette(palette)
@@ -235,15 +239,15 @@ class NucleiPOCManager(QMainWindow):
             "QPlainTextEdit {background-color: #272822; color: #F8F8F2; font-family: 'Courier New'; font-size: 12pt;}")
         # 编辑器高度设置
         row_height = 20
-        editor_height = row_height * 20  # 20行的高度
+        editor_height = row_height * 25  # 20行的高度
         self.editor.setFixedHeight(editor_height)
         splitter.addWidget(self.editor)  # 先添加编辑器到分割器
         # 应用高亮显示
         self.yamlHighlighter = YamlHighlighter(self.editor.document())
 
-        # 设置左右编辑器的宽度比例为3:8
+        # 设置左右编辑器的宽度比例为2:8
         total_width = splitter.width()  # 获取分割器的总宽度
-        left_width = total_width * 3 // 10  # 计算左侧编辑器的宽度
+        left_width = total_width * 2 // 10  # 计算左侧编辑器的宽度
         right_width = total_width - left_width  # 计算右侧编辑器的宽度
         splitter.setSizes([left_width, right_width])
 
@@ -255,7 +259,7 @@ class NucleiPOCManager(QMainWindow):
         scan_layout = QHBoxLayout()
 
         # 创建提示标题
-        target_input_label = QLabel("  在上方空白输入框内输入目标，一行一个。           代理：")
+        target_input_label = QLabel(" 在上方空白输入框内输入目标，一行一个。    代理：")
         scan_layout.addWidget(target_input_label)  # 将提示标签添加至水平布局
 
         # 创建代理设置输入框
@@ -665,7 +669,6 @@ class NucleiPOCManager(QMainWindow):
             self.execute_command_in_terminal(cmd)
 
         except Exception as e:
-            logging.error(f"An error occurred: {e}")
             QMessageBox.critical(self, "运行错误", f"运行 Nuclei 时发生错误:\n{e}")
 
     # 再次启动批量扫描时，删除上一次批量扫描的临时文件
@@ -673,7 +676,6 @@ class NucleiPOCManager(QMainWindow):
         # 清理指定的临时目录
         if os.path.exists(temp_dir_path):
             shutil.rmtree(temp_dir_path)  # 使用 shutil.rmtree 安全删除目录树
-            logging.debug(f"Deleted temp directory: {temp_dir_path}")
         # 从列表中移除已清理的目录
         if temp_dir_path in self.temp_dirs:
             self.temp_dirs.remove(temp_dir_path)
@@ -967,24 +969,37 @@ def load_yaml_files(yaml_folder):
 # 加载 YAML 文件并转换为所需的数据结构
 # ——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+# 加载 包含 YAML 文件夹的路径
+# ——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 def get_yaml_folder_path():
-    config_file = 'config.txt'
-    if not os.path.exists(config_file):
-        # 配置文件不存在，提示用户选择目录
-        folder_path = QFileDialog.getExistingDirectory(None, "Select YAML Directory")
-        if folder_path:
-            # 用户选择了目录，保存到配置文件
-            with open(config_file, 'w') as f:
-                f.write(folder_path)
+    app = QApplication(sys.argv)  # 创建 QApplication 实例
+    while True:
+        inputDialog = QInputDialog()  # 创建 QInputDialog 实例
+        inputDialog.setWindowTitle('欢迎使用🙋！')
+        inputDialog.setLabelText('请输入 nuclei-poc文件所在的目录路径(搜索poc在同一目录，目录下不能有子文件夹哦！):')
+        inputDialog.setInputMode(QInputDialog.TextInput)  # 设置输入模式为文本输入
+        # 设置对话框的大小
+        inputDialog.resize(600, 100)  # 设置输入窗口的宽度和高度
+
+        ok = inputDialog.exec_()
+        text = inputDialog.textValue().strip()
+
+        if ok:
+            folder_path = text
+            # 检查路径是否存在
+            if not os.path.exists(folder_path):
+                QMessageBox.warning(None, "路径不存在", "输入的路径不存在，请重新输入。")
+                continue
+
+            # 检查路径下是否有子文件夹
+            if any(os.path.isdir(os.path.join(folder_path, i)) for i in os.listdir(folder_path)):
+                QMessageBox.warning(None, "存在子文件夹", "输入的路径包含子文件夹，请重新输入没有子文件夹的路径。")
+                continue
+
             return folder_path
         else:
-            # 用户取消选择，退出程序
-            QMessageBox.warning(None, "No Directory Selected", "You must select a directory to continue.")
+            QMessageBox.warning(None, "未输入路径", "欢迎下次使用")
             sys.exit()
-    else:
-        # 配置文件存在，读取目录路径
-        with open(config_file, 'r') as f:
-            return f.read().strip()
 
 ########################################################################################################################
 # 运行应用程序的主函数
@@ -992,10 +1007,8 @@ def get_yaml_folder_path():
 def main():
     yaml_folder_path = get_yaml_folder_path()  # 获取 YAML 文件目录
     app = QApplication(sys.argv)
-    mainWin = QMainWindow()  # 创建 QMainWindow 实例
     yaml_data = load_yaml_files(yaml_folder_path)  # 加载 YAML 文件数据
     ex = NucleiPOCManager(yaml_data, yaml_folder_path)
-    mainWin.show()                # 显示主窗口
     ex.show()
     sys.exit(app.exec_())
 
