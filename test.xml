@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jatools Class="jatools.ReportDocument" Name="jatools report template">
+    <VariableContext/>
+    <Page>
+        <Name>panel</Name>
+        <PrintStyle>auto-size:width;visible:true;</PrintStyle>
+        <Children ItemClass="PagePanel">
+            <Item0>
+                <Name>header</Name>
+                <PrintStyle>auto-size:width;</PrintStyle>
+                <Width>1138</Width>
+                <Height>0</Height>
+                <Type>100</Type>
+            </Item0>
+            <Item1>
+                <Name>body</Name>
+                <PrintStyle>auto-size:width;</PrintStyle>
+                <Width>1138</Width>
+                <Height>868</Height>
+                <Children ItemClass="Table">
+                    <Item0>
+                        <NodePath>u8qx</NodePath>
+                        <PrintStyle>auto-size:width;</PrintStyle>
+                        <Y>10</Y>
+                        <Children>
+                            <Item0 Class="Label">
+                                <Text>项目（编号）</Text>
+                                <BackColor>-10053121</BackColor>
+                                <Border/>
+                                <Font>
+                                    <Face>宋体</Face>
+                                    <Style>1</Style>
+                                    <Size>12</Size>
+                                </Font>
+                                <HorizontalAlignment>1</HorizontalAlignment>
+                                <Cell>
+                                    <Row>0</Row>
+                                    <Col>0</Col>
+                                </Cell>
+                            </Item0>
+                            <Item1 Class="Label">
+                                <Text>科目（编号）</Text>
+                                <BackColor>-10053121</BackColor>
+                                <Border/>
+                                <Font>
+                                    <Face>宋体</Face>
+                                    <Style>1</Style>
+                                    <Size>12</Size>
+                                </Font>
+                                <HorizontalAlignment>1</HorizontalAlignment>
+                                <Cell>
+                                    <Row>0</Row>
+                                    <Col>2</Col>
+                                </Cell>
+                            </Item1>
+                            <Item2 Class="Label">
+                                <Text>摘要</Text>
+                                <BackColor>-10053121</BackColor>
+                                <Border/>
+                                <Font>
+                                    <Face>宋体</Face>
+                                    <Style>1</Style>
+                                    <Size>12</Size>
+                                </Font>
+                                <HorizontalAlignment>1</HorizontalAlignment>
+                                <Wordwrap>true</Wordwrap>
+                                <Cell>
+                                    <Row>0</Row>
+                                    <Col>3</Col>
+                                </Cell>
+                            </Item2>
+                            <Item3 Class="Label">
+                                <Text>凭证日期</Text>
+                                <BackColor>-10053121</BackColor>
+                                <Border/>
+                                <Font>
+                                    <Face>宋体</Face>
+                                    <Style>1</Style>
+                                    <Size>12</Size>
+                                </Font>
+                                <HorizontalAlignment>1</HorizontalAlignment>
+                                <Cell>
+                                    <Row>0</Row>
+                                    <Col>4</Col>
+                                </Cell>
+                            </Item3>
+                            <Item4 Class="Label">
+                                <Text>借金额</Text>
+                                <BackColor>-10053121</BackColor>
+                                <Border/>
+                                <Font>
+                                    <Face>宋体</Face>
+                                    <Style>1</Style>
+                                    <Size>12</Size>
+                                </Font>
+                                <HorizontalAlignment>1</HorizontalAlignment>
+                                <Cell>
+                                    <Row>0</Row>
+                                    <Col>5</Col>
+                                </Cell>
+                            </Item4>
+                            <Item5 Class="Label">
+                                <Text>还金额</Text>
+                                <BackColor>-10053121</BackColor>
+                                <Border/>
+                                <Font>
+                                    <Face>宋体</Face>
+                                    <Style>1</Style>
+                                    <Size>12</Size>
+                                </Font>
+                                <HorizontalAlignment>1</HorizontalAlignment>
+                                <Cell>
+                                    <Row>0</Row>
+                                    <Col>6</Col>
+                                </Cell>
+                            </Item5>
+                            <Item6 Class="Label">
+                                <Text>余额</Text>
+                                <BackColor>-10053121</BackColor>
+                                <Border>
+                                    <StyleText>border-top:1.0px solid #000000;border-left:1.0px solid
+                                        #000000;border-bottom:1.0px solid #000000;
+                                    </StyleText>
+                                </Border>
+                                <Font>
+                                    <Face>宋体</Face>
+                                    <Style>1</Style>
+                                    <Size>12</Size>
+                                </Font>
+                                <HorizontalAlignment>1</HorizontalAlignment>
+                                <Cell>
+                                    <Row>0</Row>
+                                    <Col>7</Col>
+                                </Cell>
+                            </Item6>
+                            <Item7 Class="RowPanel">
+                                <Cell>
+                                    <Row>1</Row>
+                                    <Col>0</Col>
+                                    <ColSpan>9</ColSpan>
+                                </Cell>
+                                <Children>
+                                    <Item0 Class="Text">
+                                        <Variable>=$.xmxx</Variable>
+                                        <Border/>
+                                        <Wordwrap>true</Wordwrap>
+                                        <Cell>
+                                            <Row>1</Row>
+                                            <Col>0</Col>
+                                        </Cell>
+                                    </Item0>
+                                    <Item1 Class="Text">
+                                        <Variable>=$.kmxx</Variable>
+                                        <Border/>
+                                        <Wordwrap>true</Wordwrap>
+                                        <Cell>
+                                            <Row>1</Row>
+                                            <Col>2</Col>
+                                        </Cell>
+                                    </Item1>
+                                    <Item2 Class="Text">
+                                        <Variable>=$.pzzy</Variable>
+                                        <Border/>
+                                        <Wordwrap>true</Wordwrap>
+                                        <Cell>
+                                            <Row>1</Row>
+                                            <Col>3</Col>
+                                        </Cell>
+                                    </Item2>
+                                    <Item3 Class="Text">
+                                        <Variable>=$.pzrq</Variable>
+                                        <Border/>
+                                        <Cell>
+                                            <Row>1</Row>
+                                            <Col>4</Col>
+                                        </Cell>
+                                    </Item3>
+                                    <Item4 Class="Text">
+                                        <Variable>=$.jkje</Variable>
+                                        <Border/>
+                                        <HorizontalAlignment>2</HorizontalAlignment>
+                                        <Format Class="DecimalFormat">
+                                            <Pattern>#,##0.00</Pattern>
+                                        </Format>
+                                        <Cell>
+                                            <Row>1</Row>
+                                            <Col>5</Col>
+                                        </Cell>
+                                    </Item4>
+                                    <Item5 Class="Text">
+                                        <Variable>=$.hxje</Variable>
+                                        <Border/>
+                                        <HorizontalAlignment>2</HorizontalAlignment>
+                                        <Format Class="DecimalFormat">
+                                            <Pattern>#,##0.00</Pattern>
+                                        </Format>
+                                        <Cell>
+                                            <Row>1</Row>
+                                            <Col>6</Col>
+                                        </Cell>
+                                    </Item5>
+                                    <Item6 Class="Text">
+                                        <Variable>=$.balance</Variable>
+                                        <Border>
+                                            <StyleText>border-top:1.0px solid #000000;border-left:1.0px solid
+                                                #000000;border-bottom:1.0px solid #000000;
+                                            </StyleText>
+                                        </Border>
+                                        <HorizontalAlignment>2</HorizontalAlignment>
+                                        <Format Class="DecimalFormat">
+                                            <Pattern>#,##0.00</Pattern>
+                                        </Format>
+                                        <Cell>
+                                            <Row>1</Row>
+                                            <Col>7</Col>
+                                        </Cell>
+                                    </Item6>
+                                    <Item7 Class="Label">
+                                        <Text>查看详细</Text>
+                                        <Border>
+                                            <StyleText>border-left:1.0px solid #000000;border-right:1.0px solid
+                                                #000000;border-bottom:1.0px solid #000000;
+                                            </StyleText>
+                                        </Border>
+                                        <HorizontalAlignment>1</HorizontalAlignment>
+                                        <Hyperlink>
+                                            <Url>/u8qx/bm_jk_qx_list2.jsp?idpzh=${$.idpzh}&amp;flh=${$.flh}</Url>
+                                            <Target>_blank</Target>
+                                        </Hyperlink>
+                                        <Cell>
+                                            <Row>1</Row>
+                                            <Col>8</Col>
+                                        </Cell>
+                                    </Item7>
+                                    <Item8 Class="Text">
+                                        <Variable>=$.bmxx</Variable>
+                                        <Border/>
+                                        <Wordwrap>true</Wordwrap>
+                                        <Cell>
+                                            <Row>1</Row>
+                                            <Col>1</Col>
+                                        </Cell>
+                                    </Item8>
+                                </Children>
+                                <NodePath>Row</NodePath>
+                            </Item7>
+                            <Item8 Class="Label">
+                                <Text>操作</Text>
+                                <BackColor>-10053121</BackColor>
+                                <Border>
+                                    <StyleText>border:1.0px solid #000000</StyleText>
+                                </Border>
+                                <Font>
+                                    <Face>宋体</Face>
+                                    <Style>1</Style>
+                                    <Size>12</Size>
+                                </Font>
+                                <HorizontalAlignment>1</HorizontalAlignment>
+                                <Cell>
+                                    <Row>0</Row>
+                                    <Col>8</Col>
+                                </Cell>
+                            </Item8>
+                            <Item9 Class="Label">
+                                <Text>部门（编号）</Text>
+                                <BackColor>-10053121</BackColor>
+                                <Border/>
+                                <Font>
+                                    <Face>宋体</Face>
+                                    <Style>1</Style>
+                                    <Size>12</Size>
+                                </Font>
+                                <HorizontalAlignment>1</HorizontalAlignment>
+                                <Cell>
+                                    <Row>0</Row>
+                                    <Col>1</Col>
+                                </Cell>
+                            </Item9>
+                        </Children>
+                        <ColumnWidths>126,141,129,213,78,111,108,120,103</ColumnWidths>
+                        <RowHeights>20,20,20</RowHeights>
+                    </Item0>
+                </Children>
+                <Type>102</Type>
+            </Item1>
+            <Item2>
+                <Name>footer</Name>
+                <Y>868</Y>
+                <Width>1138</Width>
+                <Height>80</Height>
+                <Type>103</Type>
+            </Item2>
+        </Children>
+        <PageFormat>
+            <Width>1138</Width>
+            <Height>948</Height>
+            <Left>0</Left>
+            <Top>0</Top>
+            <Right>0</Right>
+            <Bottom>0</Bottom>
+        </PageFormat>
+    </Page>
+    <NodeSource>
+        <Children ItemClass="DatasetNodeSource">
+            <Item0>
+                <Children ItemClass="RowNodeSource">
+                    <Item0/>
+                </Children>
+                <Reader Class="SqlReader">
+                    <Name>u8qx</Name>
+                    <Sql>CIMSP_BM_JK_QX '${gsdm}','${ren}','${bmdm}','${xmdm}','${hqbz}'</Sql>
+                    <Description>CIMSP_BM_JK_QX '${gsdm}','${ren}','${bmdm}','${xmdm}','${hqbz}'</Description>
+                    <Connection>
+                        <Driver>${property("driver")}</Driver>
+                        <User>${property("user")}</User>
+                        <Password>${property("passwd")}</Password>
+                        <Url>${property("url")}</Url>
+                    </Connection>
+                </Reader>
+                <TagName>u8qx</TagName>
+            </Item0>
+        </Children>
+    </NodeSource>
+    <Title>项目查询-个人项目-项目汇总汇总</Title>
+</jatools>
