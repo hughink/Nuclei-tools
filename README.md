@@ -4,6 +4,13 @@
 
 ## 用来管理自己为数不多的 Nuclei-poc
 
+## 2.0 版本的界面（使用方法与1.0相同）
+
+![image](https://github.com/user-attachments/assets/d0da4475-6660-4621-9643-18ca3ea4217b)
+![image](https://github.com/user-attachments/assets/71271c69-6b60-40de-a50a-244e45f081c6)
+
+
+
 ### 一、POC的增删改查
 
 #### 1、增加
