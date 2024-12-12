@@ -4,6 +4,11 @@
 
 ## 用来管理自己为数不多的 Nuclei-poc
 
+## 2.5 版本的界面（使用方法与1.0相同，需要与nuclei 放一起）
+![image](https://github.com/user-attachments/assets/2b9bb39c-3d0d-4c75-be79-099eb20e3368)
+![image](https://github.com/user-attachments/assets/9d7c9cbe-6a57-40a4-b1fa-b3e036334895)
+
+
 ## 2.0 版本的界面（使用方法与1.0相同，对了需要与nuclei 放一起）
 
 ![image](https://github.com/user-attachments/assets/d0da4475-6660-4621-9643-18ca3ea4217b)
