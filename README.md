@@ -2,7 +2,14 @@
 
                 在代码中写了很清楚的注释哦-------------------大佬方便给个小小星星吗🌟------
 
+
 ## 用来管理自己为数不多的 Nuclei-poc
+
+## 最新版本的界面（使用方法与1.0相同，需要与nuclei 放一起）
+
+![image](https://github.com/user-attachments/assets/3ed4977b-d420-42b7-89d2-11caa3f9a286)
+![image](https://github.com/user-attachments/assets/dbe8c386-a6bc-49cc-b32e-7f5ffbe4660c)
+
 
 ## 2.5 版本的界面（使用方法与1.0相同，需要与nuclei 放一起）
 ![image](https://github.com/user-attachments/assets/2b9bb39c-3d0d-4c75-be79-099eb20e3368)
